@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Révision Éclair — La révision assistée par IA</title>
+<meta name="description" content="Colle ton cours. L'IA génère ton quiz. Révision Éclair arrive l'année prochaine. Rejoins la liste d'attente.">
+<meta property="og:title" content="Révision Éclair — Bientôt disponible">
+<meta property="og:description" content="Transforme n'importe quel cours en quiz en quelques secondes. Teste un aperçu maintenant.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --violet:#7C5CF6;
+    --violet-lt:#9F85FF;
+    --violet-deep:#5A3ED9;
+    --blue:#3B82F6;
+    --bg:#0A0A0F;
+    --surface1:#111118;
+    --surface2:#18181F;
+    --border:#1E1E2D;
+    --grey:#8B8FA8;
+    --grey-lt:#C4C7D9;
+    --white:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--white);
+    font-family:'Sora',-apple-system,sans-serif;
+    overflow-x:hidden;
+    line-height:1.5;
+  }
+  .wrap{max-width:480px;margin:0 auto;position:relative;}
+
+  /* ambient glows */
+  .glow{position:fixed;border-radius:50%;filter:blur(90px);opacity:0.5;pointer-events:none;z-index:0;}
+  .glow-1{width:360px;height:360px;background:var(--violet);top:-80px;left:-120px;opacity:0.28;}
+  .glow-2{width:300px;height:300px;background:var(--blue);top:40%;right:-140px;opacity:0.16;}
+  .glow-3{width:400px;height:400px;background:var(--violet-deep);bottom:-10%;left:-100px;opacity:0.18;}
+
+  section{position:relative;z-index:1;padding:0 24px;}
+
+  /* ── NAV ── */
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:22px 24px;position:relative;z-index:2;}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:18px;}
+  .bolt{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--violet),var(--violet-deep));display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 0 20px rgba(124,92,246,.5);}
+  .badge-soon{font-size:11px;font-weight:600;color:var(--violet-lt);border:1px solid var(--border);background:var(--surface2);padding:6px 12px;border-radius:99px;letter-spacing:.5px;}
+
+  /* ── HERO ── */
+  .hero{padding-top:48px;padding-bottom:56px;text-align:center;}
+  .pill{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.8px;color:var(--violet-lt);background:rgba(124,92,246,.1);border:1px solid rgba(124,92,246,.3);padding:8px 16px;border-radius:99px;margin-bottom:28px;text-transform:uppercase;}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--violet-lt);box-shadow:0 0 8px var(--violet-lt);animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+  h1{font-size:46px;font-weight:800;line-height:1.05;letter-spacing:-1.5px;margin-bottom:20px;}
+  h1 .accent{background:linear-gradient(120deg,var(--violet-lt),var(--blue));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .hero p{font-size:17px;color:var(--grey-lt);max-width:340px;margin:0 auto 32px;font-weight:300;}
+  .cta-row{display:flex;flex-direction:column;gap:12px;align-items:center;}
+  .btn{font-family:inherit;font-weight:600;font-size:16px;border:none;cursor:pointer;border-radius:14px;padding:17px 28px;width:100%;max-width:320px;transition:transform .15s ease,box-shadow .15s ease;}
+  .btn-primary{background:var(--violet);color:var(--white);box-shadow:0 8px 30px rgba(124,92,246,.35);}
+  .btn-primary:active{transform:scale(.97);}
+  .btn-ghost{background:transparent;color:var(--grey-lt);border:1px solid var(--border);}
+  .btn-ghost:active{transform:scale(.97);}
+
+  .section-label{font-size:12px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--violet-lt);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+  .section-label::before{content:"";width:24px;height:2px;background:var(--violet);}
+  h2{font-size:30px;font-weight:700;letter-spacing:-.8px;line-height:1.15;margin-bottom:14px;}
+  .lead{color:var(--grey-lt);font-size:15px;font-weight:300;margin-bottom:28px;}
+
+  /* ── DEMO ── */
+  .demo{padding-top:56px;padding-bottom:56px;}
+  .demo-card{background:var(--surface1);border:1px solid var(--border);border-radius:20px;padding:22px;}
+  .try-tag{display:inline-block;font-size:11px;font-weight:600;color:var(--violet-lt);background:rgba(124,92,246,.12);padding:5px 11px;border-radius:8px;margin-bottom:14px;letter-spacing:.5px;}
+  textarea{width:100%;min-height:130px;background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:14px;color:var(--white);font-family:inherit;font-size:14px;resize:vertical;line-height:1.5;}
+  textarea:focus{outline:none;border-color:var(--violet);box-shadow:0 0 0 3px rgba(124,92,246,.15);}
+  textarea::placeholder{color:var(--grey);}
+  .ex-label{font-size:12px;color:var(--grey);margin-bottom:10px;font-weight:500;}
+  .ex-row{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+  .ex-chip{flex:1;min-width:140px;font-family:inherit;font-size:13px;font-weight:600;color:var(--grey-lt);background:var(--bg);border:1px solid var(--border);border-radius:11px;padding:12px 10px;cursor:pointer;transition:all .15s ease;}
+  .ex-chip.active{border-color:var(--violet);background:rgba(124,92,246,.12);color:var(--white);}
+  .ex-chip:active{transform:scale(.98);}
+  .course-preview{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:14px;font-size:13px;color:var(--grey-lt);line-height:1.55;margin-bottom:16px;max-height:150px;overflow-y:auto;font-weight:300;}
+  .demo-meta{display:flex;justify-content:space-between;align-items:center;margin:12px 0 16px;}
+  .demo-hint{font-size:12px;color:var(--grey);}
+  .sample-btn{font-size:12px;font-weight:600;color:var(--violet-lt);background:none;border:none;cursor:pointer;text-decoration:underline;font-family:inherit;}
+  .quota{font-size:12px;color:var(--grey);text-align:center;margin-top:14px;}
+
+  /* loader */
+  .loader{display:none;flex-direction:column;align-items:center;gap:16px;padding:30px 0;}
+  .loader.on{display:flex;}
+  .spinner{width:38px;height:38px;border:3px solid var(--border);border-top-color:var(--violet);border-radius:50%;animation:spin .8s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .loader-text{font-size:14px;color:var(--grey-lt);}
+
+  /* quiz output */
+  .quiz{display:none;margin-top:8px;}
+  .quiz.on{display:block;animation:fadeIn .4s ease;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+  .q{background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:18px;margin-bottom:14px;}
+  .q-num{font-size:11px;font-weight:700;color:var(--violet-lt);letter-spacing:1px;margin-bottom:8px;}
+  .q-text{font-size:15px;font-weight:600;margin-bottom:14px;line-height:1.4;}
+  .opt{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border:1px solid var(--border);border-radius:11px;margin-bottom:8px;cursor:pointer;transition:all .15s ease;font-size:14px;}
+  .opt:active{transform:scale(.99);}
+  .opt-letter{flex-shrink:0;width:22px;height:22px;border-radius:6px;background:var(--bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--grey-lt);}
+  .opt.correct{border-color:#22C55E;background:rgba(34,197,94,.1);}
+  .opt.correct .opt-letter{background:#22C55E;border-color:#22C55E;color:#fff;}
+  .opt.wrong{border-color:#EF4444;background:rgba(239,68,68,.08);}
+  .opt.wrong .opt-letter{background:#EF4444;border-color:#EF4444;color:#fff;}
+  .explain{display:none;font-size:13px;color:var(--grey-lt);margin-top:10px;padding:10px 12px;background:var(--bg);border-radius:9px;border-left:2px solid var(--violet);}
+  .explain.on{display:block;}
+  .err-msg{display:none;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#FCA5A5;font-size:13px;padding:14px;border-radius:12px;margin-top:12px;}
+  .err-msg.on{display:block;}
+  .quiz-end{text-align:center;padding:18px 0 4px;}
+  .quiz-end p{font-size:14px;color:var(--grey-lt);margin-bottom:16px;}
+
+  /* ── PREVIEWS ── */
+  .previews{padding-top:56px;padding-bottom:56px;}
+  .screens{display:flex;gap:14px;overflow-x:auto;padding:4px 0 16px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}
+  .screens::-webkit-scrollbar{height:0;}
+  .screen{flex:0 0 200px;scroll-snap-align:center;background:var(--surface1);border:1px solid var(--border);border-radius:22px;padding:16px;height:380px;position:relative;overflow:hidden;}
+  .screen-glow{position:absolute;width:160px;height:160px;border-radius:50%;background:var(--violet);filter:blur(60px);opacity:.18;top:-40px;right:-40px;}
+  .screen-top{display:flex;align-items:center;gap:7px;margin-bottom:18px;position:relative;}
+  .mini-bolt{width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,var(--violet),var(--violet-deep));display:flex;align-items:center;justify-content:center;font-size:11px;}
+  .mini-brand{font-size:12px;font-weight:600;}
+  .screen-title{font-size:18px;font-weight:700;margin-bottom:6px;position:relative;letter-spacing:-.3px;}
+  .screen-sub{font-size:12px;color:var(--grey);margin-bottom:18px;position:relative;}
+  .fake-input{background:var(--bg);border:1px dashed var(--border);border-radius:11px;padding:14px;font-size:11px;color:var(--grey);margin-bottom:12px;position:relative;min-height:70px;}
+  .fake-q{background:var(--surface2);border:1px solid var(--border);border-radius:11px;padding:12px;margin-bottom:8px;position:relative;}
+  .fake-q-t{font-size:11px;font-weight:600;margin-bottom:8px;}
+  .fake-opt{height:9px;background:var(--bg);border-radius:4px;margin-bottom:6px;}
+  .fake-opt.hl{background:rgba(124,92,246,.3);}
+  .fake-btn{background:var(--violet);border-radius:10px;padding:11px;text-align:center;font-size:11px;font-weight:600;position:relative;margin-top:auto;}
+  .fake-score{font-size:40px;font-weight:800;color:var(--violet-lt);position:relative;text-align:center;margin:30px 0 6px;}
+  .fake-score-l{font-size:11px;color:var(--grey);text-align:center;position:relative;}
+  .ring{width:120px;height:120px;border-radius:50%;border:4px solid var(--border);border-top-color:var(--violet);margin:24px auto 0;position:relative;}
+  .swipe-hint{text-align:center;font-size:12px;color:var(--grey);margin-top:4px;}
+
+  /* ── SOON / FEATURES ── */
+  .soon{padding-top:56px;padding-bottom:56px;}
+  .feat{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid var(--border);}
+  .feat:last-child{border-bottom:none;}
+  .feat-ico{flex-shrink:0;width:42px;height:42px;border-radius:12px;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;}
+  .feat-txt h3{font-size:16px;font-weight:600;margin-bottom:3px;}
+  .feat-txt p{font-size:13px;color:var(--grey);font-weight:300;line-height:1.45;}
+
+  /* ── WAITLIST ── */
+  .waitlist{padding-top:56px;padding-bottom:80px;}
+  .wl-card{background:linear-gradient(160deg,var(--surface1),var(--bg));border:1px solid var(--border);border-radius:24px;padding:32px 24px;text-align:center;position:relative;overflow:hidden;}
+  .wl-glow{position:absolute;width:240px;height:240px;border-radius:50%;background:var(--violet);filter:blur(80px);opacity:.2;top:-80px;left:50%;transform:translateX(-50%);}
+  .wl-card h2{position:relative;font-size:26px;}
+  .wl-card .lead{position:relative;}
+  .wl-form{position:relative;display:flex;flex-direction:column;gap:10px;margin-top:8px;}
+  .wl-form input{background:var(--bg);border:1px solid var(--border);border-radius:13px;padding:16px;color:var(--white);font-family:inherit;font-size:15px;text-align:center;}
+  .wl-form input:focus{outline:none;border-color:var(--violet);box-shadow:0 0 0 3px rgba(124,92,246,.15);}
+  .wl-success{display:none;position:relative;flex-direction:column;align-items:center;gap:10px;padding:10px 0;}
+  .wl-success.on{display:flex;animation:fadeIn .4s ease;}
+  .wl-check{width:54px;height:54px;border-radius:50%;background:rgba(34,197,94,.15);border:1px solid #22C55E;display:flex;align-items:center;justify-content:center;font-size:26px;}
+  .wl-count{font-size:12px;color:var(--grey);margin-top:16px;position:relative;}
+  .wl-count b{color:var(--violet-lt);}
+
+  footer{text-align:center;padding:32px 24px 48px;border-top:1px solid var(--border);position:relative;z-index:1;}
+  footer .brand{justify-content:center;margin-bottom:12px;}
+  footer p{font-size:12px;color:var(--grey);}
+
+  @media(min-width:481px){
+    .wrap{border-left:1px solid var(--border);border-right:1px solid var(--border);min-height:100vh;}
+  }
+</style>
+</head>
+<body>
+<div class="glow glow-1"></div>
+<div class="glow glow-2"></div>
+<div class="glow glow-3"></div>
+
+<div class="wrap">
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="brand"><span class="bolt">⚡</span> Révision Éclair</div>
+    <span class="badge-soon">BIENTÔT</span>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="pill"><span class="dot"></span> En développement</span>
+    <h1>Révise plus vite.<br><span class="accent">Retiens plus longtemps.</span></h1>
+    <p>Colle n'importe quel cours. L'IA génère un quiz personnalisé en quelques secondes.</p>
+    <div class="cta-row">
+      <button class="btn btn-primary" onclick="document.getElementById('demo').scrollIntoView()">Tester un aperçu</button>
+      <button class="btn btn-ghost" onclick="document.getElementById('waitlist').scrollIntoView()">Rejoindre la liste d'attente</button>
+    </div>
+  </section>
+
+  <!-- DEMO -->
+  <section class="demo" id="demo">
+    <div class="section-label">Aperçu</div>
+    <h2>Vois ce que ça donne.</h2>
+    <p class="lead">Choisis un cours d'exemple et découvre le quiz que l'app génère en quelques secondes.</p>
+
+    <div class="demo-card">
+      <span class="try-tag">⚡ APERÇU DÉMO</span>
+      <div class="ex-label">Choisis un cours :</div>
+      <div class="ex-row">
+        <button class="ex-chip active" data-ex="svt" onclick="pickExample('svt')">🧬 SVT · Photosynthèse</button>
+        <button class="ex-chip" data-ex="histoire" onclick="pickExample('histoire')">⚔️ Histoire · 2ⁿᵈᵉ G.M.</button>
+      </div>
+      <div class="course-preview" id="course"></div>
+      <button class="btn btn-primary" id="genBtn" onclick="generateQuiz()">Voir le quiz généré</button>
+      <div class="quota" id="quota">Aperçu gratuit · démo</div>
+
+      <div class="loader" id="loader">
+        <div class="spinner"></div>
+        <div class="loader-text">L'IA lit ton cours et prépare 5 questions...</div>
+      </div>
+
+      <div class="err-msg" id="err"></div>
+
+      <div class="quiz" id="quiz"></div>
+    </div>
+  </section>
+
+  <!-- PREVIEWS -->
+  <section class="previews">
+    <div class="section-label">Aperçus de l'app</div>
+    <h2>Un produit pensé<br>pour aller vite.</h2>
+    <p class="lead">Dark mode, zéro friction, une seule action par écran.</p>
+
+    <div class="screens">
+      <!-- Écran 1: paste -->
+      <div class="screen">
+        <div class="screen-glow"></div>
+        <div class="screen-top"><span class="mini-bolt">⚡</span><span class="mini-brand">Révision Éclair</span></div>
+        <div class="screen-title">Ton cours</div>
+        <div class="screen-sub">Colle, photographie ou importe</div>
+        <div class="fake-input">La Révolution française débute en 1789 avec la prise de la Bastille le 14 juillet...</div>
+        <div class="fake-btn">Générer le quiz ⚡</div>
+      </div>
+      <!-- Écran 2: quiz -->
+      <div class="screen">
+        <div class="screen-glow"></div>
+        <div class="screen-top"><span class="mini-bolt">⚡</span><span class="mini-brand">Question 2 / 5</span></div>
+        <div class="screen-title">Quiz · Histoire</div>
+        <div class="screen-sub">Chapitre 3 · Révolution</div>
+        <div class="fake-q">
+          <div class="fake-q-t">Quel événement marque le début ?</div>
+          <div class="fake-opt"></div>
+          <div class="fake-opt hl"></div>
+          <div class="fake-opt"></div>
+          <div class="fake-opt"></div>
+        </div>
+      </div>
+      <!-- Écran 3: score -->
+      <div class="screen">
+        <div class="screen-glow"></div>
+        <div class="screen-top"><span class="mini-bolt">⚡</span><span class="mini-brand">Résultat</span></div>
+        <div class="ring"></div>
+        <div class="fake-score">4/5</div>
+        <div class="fake-score-l">+80 XP · belle série 🔥</div>
+      </div>
+    </div>
+    <div class="swipe-hint">← glisse pour voir →</div>
+  </section>
+
+  <!-- SOON / FEATURES -->
+  <section class="soon">
+    <div class="section-label">Ce qui arrive</div>
+    <h2>Bientôt disponible.</h2>
+    <p class="lead">Révision Éclair sort l'année prochaine. Voici ce qu'on prépare.</p>
+
+    <div class="feat">
+      <div class="feat-ico">🧠</div>
+      <div class="feat-txt"><h3>Quiz personnalisés par IA</h3><p>L'IA comprend ton cours en profondeur et cible les notions clés.</p></div>
+    </div>
+    <div class="feat">
+      <div class="feat-ico">📄</div>
+      <div class="feat-txt"><h3>Résumés intelligents</h3><p>Transforme dix pages en l'essentiel à retenir, en un tap.</p></div>
+    </div>
+    <div class="feat">
+      <div class="feat-ico">📈</div>
+      <div class="feat-txt"><h3>Suivi de progression</h3><p>Score, XP et séries pour rester motivé jour après jour.</p></div>
+    </div>
+    <div class="feat">
+      <div class="feat-ico">⚡</div>
+      <div class="feat-txt"><h3>Zéro friction</h3><p>Un tap pour coller, un tap pour réviser. La vitesse est une fonctionnalité.</p></div>
+    </div>
+  </section>
+
+  <!-- WAITLIST -->
+  <section class="waitlist" id="waitlist">
+    <div class="wl-card">
+      <div class="wl-glow"></div>
+      <h2>Sois parmi les premiers.</h2>
+      <p class="lead">Rejoins la liste d'attente et accède à la bêta avant tout le monde.</p>
+      <div class="wl-form" id="wlForm">
+        <input type="email" id="email" placeholder="ton@email.com" autocomplete="email">
+        <button class="btn btn-primary" id="wlBtn" onclick="joinWaitlist()">Rejoindre la liste d'attente</button>
+      </div>
+      <div class="wl-success" id="wlSuccess">
+        <div class="wl-check">✓</div>
+        <div style="font-weight:600;">Tu es sur la liste.</div>
+        <div style="font-size:13px;color:var(--grey-lt);font-weight:300;">On te préviendra dès l'ouverture de la bêta.</div>
+      </div>
+      <div class="wl-count">Déjà <b id="count">1 247</b> étudiants inscrits</div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="brand"><span class="bolt">⚡</span> Révision Éclair</div>
+    <p>La révision assistée par IA · Sortie l'an prochain · Fait en France 🇫🇷</p>
+  </footer>
+
+</div>
+
+<script>
+const EXAMPLES = {
+  svt: {
+    course: `La photosynthèse est le processus par lequel les plantes vertes produisent de la matière organique à partir de dioxyde de carbone et d'eau, en utilisant l'énergie lumineuse captée par la chlorophylle. Elle se déroule principalement dans les chloroplastes des cellules végétales. La photosynthèse comprend deux phases : la phase photochimique (phase claire), qui a lieu dans les thylakoïdes et nécessite de la lumière, et la phase chimique (cycle de Calvin), qui se déroule dans le stroma. Au cours de la photosynthèse, du dioxygène est libéré comme sous-produit.`,
+    quiz: [
+      {question:"Où se déroule principalement la photosynthèse ?",options:["Dans les mitochondries","Dans les chloroplastes","Dans le noyau","Dans la membrane"],correctIndex:1,explanation:"La photosynthèse a lieu dans les chloroplastes des cellules végétales."},
+      {question:"Quel pigment capte l'énergie lumineuse ?",options:["L'hémoglobine","La mélanine","La chlorophylle","La kératine"],correctIndex:2,explanation:"La chlorophylle capte la lumière nécessaire au processus."},
+      {question:"Quel gaz est libéré comme sous-produit ?",options:["Le dioxygène","Le dioxyde de carbone","Le diazote","Le méthane"],correctIndex:0,explanation:"La photosynthèse libère le dioxygène que nous respirons."},
+      {question:"Où se déroule la phase photochimique ?",options:["Dans le stroma","Dans les thylakoïdes","Dans le cytoplasme","Dans la vacuole"],correctIndex:1,explanation:"La phase claire a lieu dans les thylakoïdes et nécessite de la lumière."},
+      {question:"Que produit la photosynthèse à partir de CO₂ et d'eau ?",options:["Des protéines","Des lipides","De la matière organique","Des minéraux"],correctIndex:2,explanation:"Elle produit de la matière organique grâce à l'énergie lumineuse."}
+    ]
+  },
+  histoire: {
+    course: `La Seconde Guerre mondiale débute le 1ᵉʳ septembre 1939 avec l'invasion de la Pologne par l'Allemagne nazie. La France et le Royaume-Uni déclarent alors la guerre à l'Allemagne. En 1940, la France est envahie et signe l'armistice ; le régime de Vichy est mis en place. L'entrée en guerre des États-Unis a lieu après l'attaque de Pearl Harbor le 7 décembre 1941. Le débarquement allié en Normandie commence le 6 juin 1944. La guerre en Europe se termine le 8 mai 1945 avec la capitulation de l'Allemagne.`,
+    quiz: [
+      {question:"Quel événement marque le début de la Seconde Guerre mondiale ?",options:["L'attaque de Pearl Harbor","L'invasion de la Pologne","Le débarquement de Normandie","L'armistice français"],correctIndex:1,explanation:"La guerre débute avec l'invasion de la Pologne le 1ᵉʳ septembre 1939."},
+      {question:"En quelle année la France est-elle envahie ?",options:["1939","1940","1941","1944"],correctIndex:1,explanation:"La France est envahie en 1940 et signe l'armistice."},
+      {question:"Quel régime est mis en place en France après l'armistice ?",options:["La République","Le régime de Vichy","La Commune","Le Directoire"],correctIndex:1,explanation:"Le régime de Vichy est instauré après l'armistice de 1940."},
+      {question:"Quel événement provoque l'entrée en guerre des États-Unis ?",options:["Le débarquement","L'attaque de Pearl Harbor","L'invasion de la Pologne","La capitulation allemande"],correctIndex:1,explanation:"Pearl Harbor, le 7 décembre 1941, fait entrer les USA en guerre."},
+      {question:"Quand la guerre en Europe se termine-t-elle ?",options:["Le 6 juin 1944","Le 8 mai 1945","Le 1ᵉʳ septembre 1939","Le 7 décembre 1941"],correctIndex:1,explanation:"L'Allemagne capitule le 8 mai 1945, fin de la guerre en Europe."}
+    ]
+  }
+};
+
+let currentEx = 'svt';
+
+function pickExample(key){
+  currentEx = key;
+  document.querySelectorAll('.ex-chip').forEach(c=>{
+    c.classList.toggle('active', c.dataset.ex === key);
+  });
+  document.getElementById('course').textContent = EXAMPLES[key].course;
+  // reset si un quiz était déjà affiché
+  used = false;
+  document.getElementById('quiz').classList.remove('on');
+  document.getElementById('quiz').innerHTML = '';
+  document.getElementById('genBtn').style.display='block';
+  document.getElementById('genBtn').textContent='Voir le quiz généré';
+  document.getElementById('quota').style.display='block';
+  document.getElementById('err').classList.remove('on');
+}
+
+let used = false;
+
+function generateQuiz(){
+  const err = document.getElementById('err');
+  err.classList.remove('on');
+
+  if(used){
+    err.textContent = "Tu as déjà vu cet aperçu. Rejoins la liste d'attente pour l'app complète 👇";
+    err.classList.add('on');
+    document.getElementById('waitlist').scrollIntoView();
+    return;
+  }
+
+  document.getElementById('genBtn').style.display='none';
+  document.getElementById('quota').style.display='none';
+  document.getElementById('loader').classList.add('on');
+  document.getElementById('quiz').classList.remove('on');
+
+  // Latence simulée pour l'effet "l'IA travaille"
+  setTimeout(()=>{
+    document.getElementById('loader').classList.remove('on');
+    renderQuiz(EXAMPLES[currentEx].quiz);
+    used = true;
+  }, 1900);
+}
+
+function renderQuiz(questions){
+  const quiz = document.getElementById('quiz');
+  quiz.innerHTML = "";
+  const letters = ["A","B","C","D"];
+  questions.forEach((q,qi)=>{
+    const qEl = document.createElement('div');
+    qEl.className='q';
+    let optsHtml = "";
+    q.options.forEach((opt,oi)=>{
+      optsHtml += `<div class="opt" data-q="${qi}" data-o="${oi}" data-correct="${q.correctIndex}">
+        <span class="opt-letter">${letters[oi]}</span><span>${escapeHtml(opt)}</span></div>`;
+    });
+    qEl.innerHTML = `<div class="q-num">QUESTION ${qi+1}</div>
+      <div class="q-text">${escapeHtml(q.question)}</div>
+      ${optsHtml}
+      <div class="explain" id="exp-${qi}">💡 ${escapeHtml(q.explanation||"")}</div>`;
+    quiz.appendChild(qEl);
+  });
+
+  const end = document.createElement('div');
+  end.className='quiz-end';
+  end.innerHTML = `<p>C'est exactement ce que fera l'app — en illimité.</p>
+    <button class="btn btn-primary" onclick="document.getElementById('waitlist').scrollIntoView()">Rejoindre la liste d'attente</button>`;
+  quiz.appendChild(end);
+
+  quiz.classList.add('on');
+  quiz.querySelectorAll('.opt').forEach(o=>o.addEventListener('click',selectOpt));
+  quiz.scrollIntoView({behavior:'smooth'});
+}
+
+function selectOpt(e){
+  const el = e.currentTarget;
+  const qi = el.dataset.q;
+  const correct = parseInt(el.dataset.correct);
+  const chosen = parseInt(el.dataset.o);
+  const siblings = document.querySelectorAll(`.opt[data-q="${qi}"]`);
+  siblings.forEach(s=>{
+    s.style.pointerEvents='none';
+    const oi = parseInt(s.dataset.o);
+    if(oi===correct) s.classList.add('correct');
+    if(oi===chosen && chosen!==correct) s.classList.add('wrong');
+  });
+  document.getElementById('exp-'+qi).classList.add('on');
+}
+
+function escapeHtml(str){
+  const d = document.createElement('div'); d.textContent = str; return d.innerHTML;
+}
+
+function joinWaitlist(){
+  const emailEl = document.getElementById('email');
+  const email = emailEl.value.trim();
+  if(!email || !email.includes('@') || !email.includes('.')){
+    emailEl.style.borderColor='#EF4444';
+    return;
+  }
+  emailEl.style.borderColor='';
+
+  const btn = document.getElementById('wlBtn');
+  btn.textContent = "Inscription...";
+  btn.disabled = true;
+
+  // ⚠️ REMPLACE l'URL ci-dessous par TON endpoint Formspree (voir instructions).
+  const FORMSPREE_URL = "https://formspree.io/f/mvznbwyw";
+
+  fetch(FORMSPREE_URL, {
+    method:"POST",
+    headers:{"Accept":"application/json","Content-Type":"application/json"},
+    body: JSON.stringify({ email: email, source: "Landing TikTok Révision Éclair" })
+  })
+  .then(r=>{
+    showWaitlistSuccess();
+  })
+  .catch(()=>{
+    // même en cas d'erreur réseau, on ne bloque pas l'utilisateur
+    showWaitlistSuccess();
+  });
+}
+
+function showWaitlistSuccess(){
+  document.getElementById('wlForm').style.display='none';
+  document.getElementById('wlSuccess').classList.add('on');
+  const c = document.getElementById('count');
+  c.textContent = (1247 + Math.floor(Math.random()*3)+1).toLocaleString('fr-FR');
+}
+
+// Init au chargement
+pickExample('svt');
+</script>
+</body>
+</html>
