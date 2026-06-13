@@ -164,6 +164,17 @@
   footer .brand{justify-content:center;margin-bottom:12px;}
   footer p{font-size:12px;color:var(--grey);}
 
+  /* ── HERO MASCOT ── */
+  .lumi-hero{width:120px;height:auto;display:block;margin:0 auto 18px;}
+
+  /* ── HOW IT WORKS ── */
+  .how{padding-top:48px;padding-bottom:8px;}
+  .steps{display:flex;flex-direction:column;gap:12px;margin-top:4px;}
+  .step{display:flex;align-items:center;gap:15px;background:var(--surface1);border:1px solid rgba(124,92,246,.4);border-radius:16px;padding:16px 18px;}
+  .step-ico{flex-shrink:0;width:46px;height:46px;border-radius:13px;background:rgba(124,92,246,.1);border:1px solid rgba(124,92,246,.28);display:flex;align-items:center;justify-content:center;}
+  .step-txt .step-num{font-size:11px;font-weight:700;letter-spacing:1px;color:var(--violet-lt);margin-bottom:2px;}
+  .step-txt h3{font-size:16px;font-weight:600;letter-spacing:-.2px;}
+
   @media(min-width:481px){
     .wrap{border-left:1px solid var(--border);border-right:1px solid var(--border);min-height:100vh;}
   }
@@ -178,26 +189,62 @@
 
   <!-- NAV -->
   <div class="nav">
-    <div class="brand"><span class="bolt">⚡</span> Révision Éclair</div>
+    <div class="brand"><span class="bolt"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 8 L3 1 L11 6 Z" fill="#fff"/><path d="M18 8 L21 1 L13 6 Z" fill="#fff"/><circle cx="12" cy="13" r="8" fill="#fff"/><circle cx="9" cy="12.5" r="1.7" fill="#5A3ED9"/><circle cx="15" cy="12.5" r="1.7" fill="#5A3ED9"/><circle cx="12" cy="15" r="1" fill="#5A3ED9"/><path d="M10.4 16.4 Q12 17.8 13.6 16.4" stroke="#5A3ED9" stroke-width="1.4" stroke-linecap="round" fill="none"/></svg></span> Révision Éclair</div>
     <span class="badge-soon">BIENTÔT</span>
   </div>
 
   <!-- HERO -->
   <section class="hero">
+    <img class="lumi-hero" src="lumi-idle.png" alt="Lumi, la mascotte de Révision Éclair">
     <span class="pill"><span class="dot"></span> En développement</span>
-    <h1>Révise plus vite.<br><span class="accent">Retiens plus longtemps.</span></h1>
-    <p>Colle n'importe quel cours. L'IA génère un quiz personnalisé en quelques secondes.</p>
+    <h1>T'as un exam demain ?<br><span class="accent">On s'en occupe.</span></h1>
+    <p>Colle ton cours, Lumi génère tes questions en 10 secondes. Utilisé par des lycéens pour les lycéens.</p>
     <div class="cta-row">
-      <button class="btn btn-primary" onclick="document.getElementById('demo').scrollIntoView()">Tester un aperçu</button>
-      <button class="btn btn-ghost" onclick="document.getElementById('waitlist').scrollIntoView()">Rejoindre la liste d'attente</button>
+      <button class="btn btn-primary" onclick="document.getElementById('demo').scrollIntoView()">Tester maintenant — c'est gratuit</button>
+      <button class="btn btn-ghost" onclick="document.getElementById('waitlist').scrollIntoView()">S'inscrire en bêta</button>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how">
+    <div class="section-label">Comment ça marche</div>
+    <h2>Trois taps. Zéro prise de tête.</h2>
+    <p class="lead">Pas de compte à créer. Pas de paramètre à régler. Tu colles, ça marche.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9F85FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/>
+            <path d="M14 3v5h5"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/>
+          </svg>
+        </div>
+        <div class="step-txt"><div class="step-num">ÉTAPE 1</div><h3>Colle ton cours ou ta fiche</h3></div>
+      </div>
+      <div class="step">
+        <div class="step-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="#9F85FF" aria-hidden="true">
+            <path d="M13 2 L4 14 h6 l-1.5 8 L20 9 h-6 z"/>
+          </svg>
+        </div>
+        <div class="step-txt"><div class="step-num">ÉTAPE 2</div><h3>Lumi génère tes questions</h3></div>
+      </div>
+      <div class="step">
+        <div class="step-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9F85FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 4h12v4a6 6 0 0 1-12 0z"/><path d="M6 6H3a3 3 0 0 0 3 3.5"/><path d="M18 6h3a3 3 0 0 1-3 3.5"/>
+            <line x1="12" y1="14" x2="12" y2="18"/><path d="M9 21h6"/><path d="M9.5 18h5"/>
+          </svg>
+        </div>
+        <div class="step-txt"><div class="step-num">ÉTAPE 3</div><h3>Tu réponds, tu retiens</h3></div>
+      </div>
     </div>
   </section>
 
   <!-- DEMO -->
   <section class="demo" id="demo">
     <div class="section-label">Aperçu</div>
-    <h2>Vois ce que ça donne.</h2>
-    <p class="lead">Choisis un cours d'exemple et découvre le quiz que l'app génère en quelques secondes.</p>
+    <h2>Essaie pour de vrai.</h2>
+    <p class="lead">Voilà exactement ce que tu verras dans l'app. Choisis un cours et lance.</p>
 
     <div class="demo-card">
       <span class="try-tag">⚡ APERÇU DÉMO</span>
@@ -207,12 +254,12 @@
         <button class="ex-chip" data-ex="histoire" onclick="pickExample('histoire')">⚔️ Histoire · 2ⁿᵈᵉ G.M.</button>
       </div>
       <div class="course-preview" id="course"></div>
-      <button class="btn btn-primary" id="genBtn" onclick="generateQuiz()">Voir le quiz généré</button>
-      <div class="quota" id="quota">Aperçu gratuit · démo</div>
+      <button class="btn btn-primary" id="genBtn" onclick="generateQuiz()">Lancer le quiz</button>
+      <div class="quota" id="quota">Aperçu gratuit · aucun compte requis</div>
 
       <div class="loader" id="loader">
         <div class="spinner"></div>
-        <div class="loader-text">L'IA lit ton cours et prépare 5 questions...</div>
+        <div class="loader-text">Lumi lit ton cours et prépare tes questions...</div>
       </div>
 
       <div class="err-msg" id="err"></div>
@@ -224,8 +271,8 @@
   <!-- PREVIEWS -->
   <section class="previews">
     <div class="section-label">Aperçus de l'app</div>
-    <h2>Un produit pensé<br>pour aller vite.</h2>
-    <p class="lead">Dark mode, zéro friction, une seule action par écran.</p>
+    <h2>Conçu pour réviser vite,<br>pas pour impressionner.</h2>
+    <p class="lead">Une action par écran. Ton cours en quiz en moins de 15 secondes.</p>
 
     <div class="screens">
       <!-- Écran 1: paste -->
@@ -271,19 +318,19 @@
 
     <div class="feat">
       <div class="feat-ico">🧠</div>
-      <div class="feat-txt"><h3>Quiz personnalisés par IA</h3><p>L'IA comprend ton cours en profondeur et cible les notions clés.</p></div>
+      <div class="feat-txt"><h3>Quiz taillés pour ton cours</h3><p>Lumi lit ton cours et sort les questions qui tombent vraiment au bac.</p></div>
     </div>
     <div class="feat">
       <div class="feat-ico">📄</div>
-      <div class="feat-txt"><h3>Résumés intelligents</h3><p>Transforme dix pages en l'essentiel à retenir, en un tap.</p></div>
+      <div class="feat-txt"><h3>Fiches express en un tap</h3><p>Dix pages de cours → une fiche en 30 secondes. Chrono.</p></div>
     </div>
     <div class="feat">
       <div class="feat-ico">📈</div>
-      <div class="feat-txt"><h3>Suivi de progression</h3><p>Score, XP et séries pour rester motivé jour après jour.</p></div>
+      <div class="feat-txt"><h3>Ton score, ton XP, ta série</h3><p>Suis ta progression, bats ton record, garde ta série.</p></div>
     </div>
     <div class="feat">
       <div class="feat-ico">⚡</div>
-      <div class="feat-txt"><h3>Zéro friction</h3><p>Un tap pour coller, un tap pour réviser. La vitesse est une fonctionnalité.</p></div>
+      <div class="feat-txt"><h3>Rapide comme un éclair</h3><p>Pas de pub, pas de tutorial, pas de blabla. Tu révises, c'est tout.</p></div>
     </div>
   </section>
 
@@ -292,23 +339,23 @@
     <div class="wl-card">
       <div class="wl-glow"></div>
       <h2>Sois parmi les premiers.</h2>
-      <p class="lead">Rejoins la liste d'attente et accède à la bêta avant tout le monde.</p>
+      <p class="lead">L'app sort bientôt. Inscris-toi et on te prévient en premier — et t'as accès à la bêta gratuite.</p>
       <div class="wl-form" id="wlForm">
-        <input type="email" id="email" placeholder="ton@email.com" autocomplete="email">
-        <button class="btn btn-primary" id="wlBtn" onclick="joinWaitlist()">Rejoindre la liste d'attente</button>
+        <input type="email" id="email" placeholder="ton.email@lycee.fr" autocomplete="email">
+        <button class="btn btn-primary" id="wlBtn" onclick="joinWaitlist()">Je veux la bêta gratuite</button>
       </div>
       <div class="wl-success" id="wlSuccess">
         <div class="wl-check">✓</div>
-        <div style="font-weight:600;">Tu es sur la liste.</div>
-        <div style="font-size:13px;color:var(--grey-lt);font-weight:300;">On te préviendra dès l'ouverture de la bêta.</div>
+        <div style="font-weight:600;">C'est bon, t'es sur la liste.</div>
+        <div style="font-size:13px;color:var(--grey-lt);font-weight:300;">On te contacte dès que la bêta est ouverte. Gratuit, sans spam.</div>
       </div>
-      <div class="wl-count">Déjà <b id="count">1 247</b> étudiants inscrits</div>
+      <div class="wl-count">Déjà <b id="count">1 247</b> lycéens inscrits</div>
     </div>
   </section>
 
   <footer>
-    <div class="brand"><span class="bolt">⚡</span> Révision Éclair</div>
-    <p>La révision assistée par IA · Sortie l'an prochain · Fait en France 🇫🇷</p>
+    <div class="brand"><span class="bolt"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 8 L3 1 L11 6 Z" fill="#fff"/><path d="M18 8 L21 1 L13 6 Z" fill="#fff"/><circle cx="12" cy="13" r="8" fill="#fff"/><circle cx="9" cy="12.5" r="1.7" fill="#5A3ED9"/><circle cx="15" cy="12.5" r="1.7" fill="#5A3ED9"/><circle cx="12" cy="15" r="1" fill="#5A3ED9"/><path d="M10.4 16.4 Q12 17.8 13.6 16.4" stroke="#5A3ED9" stroke-width="1.4" stroke-linecap="round" fill="none"/></svg></span> Révision Éclair</div>
+    <p>Pour les lycéens, par des lycéens · Sortie l'an prochain · Fait en France 🇫🇷</p>
   </footer>
 
 </div>
@@ -350,7 +397,7 @@ function pickExample(key){
   document.getElementById('quiz').classList.remove('on');
   document.getElementById('quiz').innerHTML = '';
   document.getElementById('genBtn').style.display='block';
-  document.getElementById('genBtn').textContent='Voir le quiz généré';
+  document.getElementById('genBtn').textContent='Lancer le quiz';
   document.getElementById('quota').style.display='block';
   document.getElementById('err').classList.remove('on');
 }
