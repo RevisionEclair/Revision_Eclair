@@ -253,8 +253,84 @@
   .modal-soon{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--amber-deep);background:var(--surface2);padding:5px 10px;border-radius:7px;margin-top:4px;}
   .modal-close{position:absolute;top:16px;right:16px;width:30px;height:30px;border-radius:50%;background:var(--surface2);border:none;cursor:pointer;font-size:16px;color:var(--text-soft);display:flex;align-items:center;justify-content:center;}
 
-  @media(min-width:481px){
-    .wrap{border-left:1px solid var(--border);border-right:1px solid var(--border);min-height:100vh;}
+  /* ═══════════════ VERSION PC / TABLETTE ═══════════════ */
+  @media(min-width:768px){
+    .wrap{max-width:1080px;border-left:1px solid var(--border);border-right:1px solid var(--border);min-height:100vh;}
+    section{padding:0 56px;}
+    .nav{padding:26px 56px;}
+    .nav .brand span{font-size:19px;}
+
+    /* HERO : 2 colonnes, Lumi à droite en grand */
+    .hero{flex-direction:row;text-align:left;align-items:center;justify-content:space-between;gap:48px;padding-top:64px;padding-bottom:72px;}
+    .hero-text{order:1;max-width:560px;}
+    .hero-lumi{order:2;width:220px;height:220px;margin:0;}
+    .hero .pill{margin-bottom:22px;}
+    h1{font-size:54px;line-height:1.04;letter-spacing:-2.5px;}
+    .hero p{font-size:18px;max-width:440px;margin-bottom:30px;}
+    .cta-row{flex-direction:row;align-items:center;width:auto;}
+    .btn{width:auto;font-size:16px;padding:16px 30px;}
+
+    /* Titres de section plus grands */
+    h2{font-size:38px;letter-spacing:-1.2px;}
+    .lead{font-size:17px;max-width:600px;}
+
+    /* TIMELINE : horizontale en 3 colonnes */
+    .timeline{padding-left:0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;margin-top:40px;}
+    .timeline::before{left:0;right:0;top:16px;bottom:auto;width:auto;height:2px;background:linear-gradient(90deg,var(--amber),var(--green));}
+    .tstep{margin-bottom:0;padding-top:48px;}
+    .tnum{left:0;top:0;}
+    .tstep h3{font-size:18px;}
+
+    /* POURQUOI : 3 colonnes côte à côte */
+    .why-card{flex-direction:column;text-align:left;margin-bottom:0;height:100%;}
+    .why-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:8px;}
+    .why-ico{width:48px;height:48px;font-size:24px;margin-bottom:6px;}
+    .why-card h3{font-size:17px;}
+    .why-card p{font-size:14px;}
+
+    /* ROADMAP : 2x2 large façon SchoolMouv, centré */
+    .roadmap{text-align:center;}
+    .roadmap .section-label{justify-content:center;}
+    .roadmap .lead{margin-left:auto;margin-right:auto;}
+    .feat-grid{grid-template-columns:1fr 1fr;gap:20px;max-width:760px;margin:6px auto 0;text-align:left;}
+    .fcard{padding:24px;}
+    .fcard-ico{width:48px;height:48px;font-size:24px;margin-bottom:14px;}
+    .fcard h3{font-size:17px;}
+    .fcard p{font-size:13.5px;}
+    .fcard-more{font-size:12px;margin-top:12px;}
+    .fbadge{font-size:10px;top:18px;right:18px;}
+
+    /* Bouton démo "Lancer le quiz" : largeur normale, centré */
+    #genBtn{width:auto;min-width:240px;display:block;margin-left:auto;margin-right:auto;}
+
+    /* DÉMO : carte centrée, pas pleine largeur */
+    .demo-card{max-width:680px;margin:0 auto;padding:32px;}
+
+    /* PREVIEWS : 3 écrans agrandis, alignés sans scroll */
+    .screens{justify-content:center;overflow-x:visible;gap:24px;margin-top:8px;}
+    .screen{flex:0 0 300px;height:520px;padding:24px;border-radius:28px;}
+    .screen-title{font-size:24px;}
+    .fake-input{font-size:14px;min-height:110px;padding:18px;}
+    .fake-btn{font-size:14px;padding:15px;}
+    .screen-top .mini-brand{font-size:14px;}
+    .swipe-hint{display:none;}
+
+    /* WAITLIST : carte centrée, formulaire empilé et centré */
+    .wl-card{max-width:640px;margin:0 auto;padding:48px 40px;}
+    .wl-form{display:flex;flex-direction:column;gap:12px;max-width:440px;margin:8px auto 0;align-items:center;}
+    .wl-form input{width:100%;text-align:center;}
+    .wl-form .btn{width:100%;white-space:nowrap;}
+
+    /* Stickers PC : repositionnés pour la largeur */
+    .stk1{top:120px;right:40px;}
+    .stk2{top:1400px;left:30px;}
+    .stk3{top:1900px;right:40px;}
+
+    footer{padding:40px 56px;}
+  }
+
+  @media(min-width:1100px){
+    .wrap{max-width:1080px;}
   }
 </style>
 </head>
@@ -395,6 +471,7 @@
     <h2>"ChatGPT fait déjà ça",<br>tu vas <span class="hl2">me dire</span>.</h2>
     <p class="lead">Vrai. Mais voilà ce qu'un chatbot ne fait pas.</p>
 
+    <div class="why-cards">
     <div class="why-card">
       <div class="why-ico">🎓</div>
       <div><h3>Par un lycéen, pas une boîte</h3><p>Je suis en seconde. Je construis l'app que j'aurais voulu avoir pour réviser. Zéro blabla corporate.</p></div>
@@ -406,6 +483,7 @@
     <div class="why-card">
       <div class="why-ico">🧠</div>
       <div><h3>Basé sur la science de la mémoire</h3><p>On ne génère pas juste un quiz. On construit autour de la <b>courbe de l'oubli</b> pour que ça reste vraiment.</p></div>
+    </div>
     </div>
   </section>
 
