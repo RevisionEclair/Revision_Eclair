@@ -553,7 +553,6 @@
         <div style="font-weight:600;">C'est bon, t'es sur la liste.</div>
         <div style="font-size:13px;color:rgba(255,255,255,0.65);font-weight:300;">On te contacte dès que la bêta est ouverte. Gratuit, sans spam.</div>
       </div>
-      <div class="wl-count">Déjà <b id="count">1 247</b> lycéens inscrits</div>
     </div>
   </section>
 
@@ -777,8 +776,6 @@ function joinWaitlist(){
 function showWaitlistSuccess(){
   document.getElementById('wlForm').style.display='none';
   document.getElementById('wlSuccess').classList.add('on');
-  const c = document.getElementById('count');
-  c.textContent = (1247 + Math.floor(Math.random()*3)+1).toLocaleString('fr-FR');
 }
 
 pickExample('svt');
