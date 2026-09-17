@@ -547,6 +547,7 @@
       <div class="wl-form" id="wlForm">
         <input type="email" id="email" placeholder="ton.email@lycee.fr" autocomplete="email">
         <button class="btn btn-primary" id="wlBtn" onclick="joinWaitlist()">Je veux la bêta gratuite</button>
+        <div id="wlError" style="display:none;color:#FCA5A5;font-size:13px;margin-top:10px;"></div>
       </div>
       <div class="wl-success" id="wlSuccess">
         <div class="wl-check">✓</div>
@@ -754,6 +755,9 @@ function joinWaitlist(){
   }
   emailEl.style.borderColor='';
 
+  const wlErr = document.getElementById('wlError');
+  if(wlErr){ wlErr.style.display='none'; }
+
   const btn = document.getElementById('wlBtn');
   btn.textContent = "Inscription...";
   btn.disabled = true;
@@ -766,16 +770,28 @@ function joinWaitlist(){
     body: JSON.stringify({ email: email, source: "Landing TikTok Révision Éclair" })
   })
   .then(r=>{
-    showWaitlistSuccess();
+    if(r.ok){ showWaitlistSuccess(); }
+    else { showWaitlistError(); }
   })
   .catch(()=>{
-    showWaitlistSuccess();
+    showWaitlistError();
   });
 }
 
 function showWaitlistSuccess(){
   document.getElementById('wlForm').style.display='none';
   document.getElementById('wlSuccess').classList.add('on');
+}
+
+function showWaitlistError(){
+  const btn = document.getElementById('wlBtn');
+  btn.textContent = "Réessaie";
+  btn.disabled = false;
+  const e = document.getElementById('wlError');
+  if(e){
+    e.textContent = "Oups, l'inscription n'a pas pu être enregistrée. Réessaie dans un instant.";
+    e.style.display = 'block';
+  }
 }
 
 pickExample('svt');
