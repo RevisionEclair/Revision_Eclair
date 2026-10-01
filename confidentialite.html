@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Politique de confidentialité — Révision Éclair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#fdf8e1; --surface:#ffffff; --text:#1c1917; --soft:#78716c; --gold:#f9dc5c; --deep:#c9a800; --border:#fae588; --navy:#312e81; }
+  * { box-sizing:border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:'Sora', system-ui, -apple-system, 'Segoe UI', sans-serif; line-height:1.65; font-size:16px;
+         padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  header { background:var(--navy); color:#fff; padding:40px 20px 36px; }
+  header .wrap, main { max-width:720px; margin:0 auto; }
+  .eyebrow { color:var(--gold); font-weight:700; font-size:13px; letter-spacing:.12em; text-transform:uppercase; }
+  h1 { font-size:30px; line-height:1.2; margin:10px 0 8px; font-weight:800; }
+  header p { margin:0; color:#d9d6f5; font-size:14px; }
+  main { padding:28px 20px 56px; }
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px; margin:0 0 16px; }
+  .card.key { border:2px solid var(--deep); }
+  h2 { font-size:19px; margin:0 0 10px; font-weight:700; }
+  h3 { font-size:16px; margin:16px 0 6px; font-weight:700; }
+  p { margin:0 0 10px; }
+  ul { margin:0 0 10px; padding-left:20px; }
+  li { margin-bottom:6px; }
+  a { color:var(--navy); font-weight:600; }
+  .soft { color:var(--soft); font-size:14px; }
+  .table-wrap { overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; font-size:14px; min-width:520px; }
+  th, td { text-align:left; vertical-align:top; padding:10px 8px; border-bottom:1px solid var(--border); }
+  th { font-weight:700; }
+  nav ol { margin:0; padding-left:20px; columns:2; column-gap:24px; }
+  @media (max-width:560px){ nav ol { columns:1; } h1 { font-size:26px; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Révision Éclair</div>
+    <h1>Politique de confidentialité</h1>
+    <p>En vigueur depuis le 1er octobre 2026</p>
+  </div>
+</header>
+
+<main>
+  <div class="card key">
+    <h2>L'essentiel en 30 secondes</h2>
+    <ul>
+      <li>On collecte le minimum pour faire marcher l'app : ton prénom, ton email, tes cours collés, tes quiz et ta progression.</li>
+      <li>On ne vend rien, on n'affiche pas de publicité, on ne te piste pas.</li>
+      <li>Ton cours est envoyé à Google (Gemini) uniquement pour fabriquer ton quiz.</li>
+      <li>Tu peux supprimer ton compte et toutes tes données à tout moment, directement dans l'app.</li>
+      <li>L'app est réservée aux personnes de 15 ans et plus.</li>
+    </ul>
+  </div>
+
+  <nav class="card" aria-label="Sommaire">
+    <h2>Sommaire</h2>
+    <ol>
+      <li><a href="#responsable">Qui est responsable ?</a></li>
+      <li><a href="#donnees">Données collectées</a></li>
+      <li><a href="#finalites">Pourquoi et sur quelle base</a></li>
+      <li><a href="#destinataires">Qui y a accès</a></li>
+      <li><a href="#transferts">Transferts hors UE</a></li>
+      <li><a href="#conservation">Durée de conservation</a></li>
+      <li><a href="#age">Âge minimum</a></li>
+      <li><a href="#droits">Tes droits</a></li>
+      <li><a href="#suppression">Supprimer ton compte</a></li>
+      <li><a href="#securite">Sécurité</a></li>
+      <li><a href="#traceurs">Traceurs</a></li>
+      <li><a href="#waitlist">Liste d'attente du site</a></li>
+      <li><a href="#modifs">Modifications</a></li>
+    </ol>
+  </nav>
+
+  <section class="card" id="responsable">
+    <h2>1. Qui est responsable de tes données ?</h2>
+    <p>Le responsable du traitement est <strong>[Hervé RIDORET]</strong>, éditeur de l'application Révision Éclair, personne physique résidant en France.</p>
+    <p>Contact pour toute question sur tes données : <a href="mailto:revisioneclair@gmail.com">revisioneclair@gmail.com</a></p>
+  </section>
+
+  <section class="card" id="donnees">
+    <h2>2. Les données qu'on collecte</h2>
+    <h3>Ton compte</h3>
+    <ul>
+      <li>Ton prénom et ton adresse email.</li>
+      <li>Ton mot de passe : il est géré par Google Firebase Authentication et nous n'y avons jamais accès en clair.</li>
+      <li>Si tu te connectes avec Google : ton nom affiché et ta photo de profil Google.</li>
+      <li>Un identifiant technique de compte, la date de création du compte et la date à laquelle tu as accepté cette politique.</li>
+    </ul>
+    <h3>Ce que tu fais dans l'app</h3>
+    <ul>
+      <li>Le texte des cours que tu colles pour générer un quiz.</li>
+      <li>Les quiz générés, tes réponses, tes scores, et les dates de tes prochaines révisions.</li>
+      <li>Ta progression : points d'expérience, série de jours, niveau de Lumi, nombre de générations utilisées par jour, statut gratuit ou Premium.</li>
+    </ul>
+    <p class="soft">Conseil : ne colle jamais d'informations personnelles (les tiennes ou celles d'autres personnes) dans un cours. L'app n'en a pas besoin.</p>
+    <h3>Ce qu'on ne collecte pas</h3>
+    <p>Pas de numéro de téléphone, pas de localisation, pas de contacts, pas de données bancaires. Si tu passes Premium, le paiement est entièrement géré par l'App Store ou Google Play : nous ne voyons jamais ta carte.</p>
+  </section>
+
+  <section class="card" id="finalites">
+    <h2>3. Pourquoi on utilise tes données, et sur quelle base</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Ce qu'on fait</th><th>Base légale (RGPD)</th></tr></thead>
+        <tbody>
+          <tr><td>Créer et gérer ton compte, générer tes quiz, planifier tes révisions, suivre ta progression</td><td>Exécution du service que tu demandes (art. 6.1.b)</td></tr>
+          <tr><td>Appliquer la limite de quiz gratuits par jour et gérer l'abonnement Premium</td><td>Exécution du service (art. 6.1.b)</td></tr>
+          <tr><td>Garder la preuve que tu as accepté cette politique et déclaré avoir 15 ans ou plus</td><td>Intérêt légitime : pouvoir le démontrer (art. 6.1.f)</td></tr>
+          <tr><td>Répondre à tes messages</td><td>Intérêt légitime (art. 6.1.f)</td></tr>
+          <tr><td>Protéger l'app contre les abus</td><td>Intérêt légitime (art. 6.1.f)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="soft">Tes données ne servent jamais à de la publicité, ne sont jamais vendues, et ne servent à aucune décision automatisée qui te concernerait juridiquement.</p>
+  </section>
+
+  <section class="card" id="destinataires">
+    <h2>4. Qui a accès à tes données</h2>
+    <p>Personne d'autre que nous et nos prestataires techniques, chacun pour sa seule mission :</p>
+    <ul>
+      <li><strong>Google Firebase</strong> (Google) : connexion, hébergement de la base de données de l'app.</li>
+      <li><strong>Google Gemini API</strong> (Google) : reçoit le texte de ton cours pour générer le quiz. Dans le cadre de l'offre que nous utilisons, Google ne s'en sert pas pour entraîner ses modèles.</li>
+      <li><strong>Apple App Store / Google Play</strong> : uniquement si tu souscris à Premium, pour gérer le paiement.</li>
+    </ul>
+    <p>Les autres utilisateurs de l'app ne voient jamais tes cours, tes quiz ni tes scores.</p>
+  </section>
+
+  <section class="card" id="transferts">
+    <h2>5. Transferts hors de l'Union européenne</h2>
+    <p>Google peut traiter certaines données sur des serveurs situés hors de l'UE, notamment aux États-Unis. Ces transferts sont encadrés par le cadre de protection des données UE–États-Unis (Data Privacy Framework), auquel Google adhère, et par les clauses contractuelles types de la Commission européenne.</p>
+  </section>
+
+  <section class="card" id="conservation">
+    <h2>6. Combien de temps on garde tes données</h2>
+    <ul>
+      <li><strong>Tant que ton compte existe</strong> : on garde ton compte, tes quiz et ta progression pour que l'app fonctionne.</li>
+      <li><strong>Quand tu supprimes ton compte</strong> : tout est effacé immédiatement (compte, cours, quiz, progression).</li>
+      <li><strong>Compte inactif</strong> : un compte sans aucune connexion pendant 3 ans est supprimé.</li>
+      <li><strong>Emails que tu nous envoies</strong> : conservés 1 an après le dernier échange.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="age">
+    <h2>7. Âge minimum : 15 ans</h2>
+    <p>Révision Éclair est réservée aux personnes de 15 ans et plus. À la création du compte, tu déclares avoir au moins 15 ans. Si nous apprenons qu'un compte appartient à une personne de moins de 15 ans, nous le supprimons.</p>
+  </section>
+
+  <section class="card" id="droits">
+    <h2>8. Tes droits</h2>
+    <p>Tu peux, à tout moment et gratuitement :</p>
+    <ul>
+      <li><strong>accéder</strong> à tes données et en obtenir une copie ;</li>
+      <li>les <strong>faire corriger</strong> ;</li>
+      <li>les <strong>faire effacer</strong> (voir section 9) ;</li>
+      <li>t'<strong>opposer</strong> à un traitement fondé sur notre intérêt légitime, ou en demander la <strong>limitation</strong> ;</li>
+      <li>récupérer tes données dans un format réutilisable (<strong>portabilité</strong>).</li>
+    </ul>
+    <p>Écris à <a href="mailto:revisioneclair@gmail.com">revisioneclair@gmail.com</a> depuis l'adresse de ton compte. On répond sous un mois maximum.</p>
+    <p>Si tu estimes que tes droits ne sont pas respectés, tu peux saisir la CNIL : <a href="https://www.cnil.fr/fr/plaintes" rel="noopener">cnil.fr/fr/plaintes</a>.</p>
+  </section>
+
+  <section class="card key" id="suppression">
+    <h2>9. Supprimer ton compte</h2>
+    <h3>Depuis l'app (immédiat)</h3>
+    <p>Profil → Paramètres → <strong>Supprimer mon compte</strong>. Ton compte, tes cours, tes quiz et ta progression sont effacés définitivement. Par sécurité, l'app peut te demander de te reconnecter juste avant.</p>
+    <h3>Sans l'app</h3>
+    <p>Envoie un email à <a href="mailto:revisioneclair@gmail.com?subject=Suppression%20de%20compte">revisioneclair@gmail.com</a> avec l'objet « Suppression de compte », depuis l'adresse email de ton compte. Le compte et toutes les données associées sont supprimés sous 30 jours, et on te le confirme par email.</p>
+  </section>
+
+  <section class="card" id="securite">
+    <h2>10. Sécurité</h2>
+    <p>Les échanges avec l'app sont chiffrés. L'accès à la base de données est verrouillé par des règles qui n'autorisent chaque utilisateur à lire et modifier que ses propres données. Les mots de passe sont gérés par Firebase Authentication et ne sont jamais stockés en clair.</p>
+  </section>
+
+  <section class="card" id="traceurs">
+    <h2>11. Traceurs</h2>
+    <p>L'app n'utilise aucun traceur publicitaire ni outil de mesure d'audience. Seuls les éléments techniques indispensables au fonctionnement (garder ta session connectée) sont utilisés.</p>
+  </section>
+
+  <section class="card" id="waitlist">
+    <h2>12. Liste d'attente du site</h2>
+    <p>Si tu t'inscris sur la liste d'attente du site, on collecte uniquement ton adresse email, via le service Formspree, pour te prévenir de la sortie de l'app. Elle est supprimée dans les 3 mois qui suivent la sortie, ou plus tôt sur simple demande à <a href="mailto:revisioneclair@gmail.com">revisioneclair@gmail.com</a>.</p>
+  </section>
+
+  <section class="card" id="modifs">
+    <h2>13. Modifications</h2>
+    <p>Si cette politique change de façon importante, on te prévient dans l'app avant que les changements s'appliquent. La date en haut de page indique la dernière version.</p>
+  </section>
+
+  <p class="soft" style="text-align:center;margin-top:24px;">Révision Éclair · <a href="mailto:revisioneclair@gmail.com">revisioneclair@gmail.com</a></p>
+</main>
+</body>
+</html>
