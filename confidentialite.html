@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Politique de confidentialité — Révision Éclair</title>
+<title>Politique de confidentialité et règles du CDI — Révision Éclair</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root { --bg:#fdf8e1; --surface:#ffffff; --text:#1c1917; --soft:#78716c; --gold:#f9dc5c; --deep:#c9a800; --border:#fae588; --navy:#312e81; }
+  :root { --bg:#fdf8e1; --surface:#ffffff; --text:#1c1917; --soft:#78716c; --gold:#f9dc5c; --deep:#c9a800; --border:#fae588; --navy:#312e81; --red:#dc2626; }
   * { box-sizing:border-box; }
   html { scroll-padding-top: env(safe-area-inset-top, 0px); }
   body { margin:0; background:var(--bg); color:var(--text); font-family:'Sora', system-ui, -apple-system, 'Segoe UI', sans-serif; line-height:1.65; font-size:16px;
@@ -20,6 +20,7 @@
   main { padding:28px 20px 56px; }
   .card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px; margin:0 0 16px; }
   .card.key { border:2px solid var(--deep); }
+  .card.rules { border:2px solid var(--navy); }
   h2 { font-size:19px; margin:0 0 10px; font-weight:700; }
   h3 { font-size:16px; margin:16px 0 6px; font-weight:700; }
   p { margin:0 0 10px; }
@@ -27,6 +28,7 @@
   li { margin-bottom:6px; }
   a { color:var(--navy); font-weight:600; }
   .soft { color:var(--soft); font-size:14px; }
+  .no { color:var(--red); font-weight:700; }
   .table-wrap { overflow-x:auto; }
   table { width:100%; border-collapse:collapse; font-size:14px; min-width:520px; }
   th, td { text-align:left; vertical-align:top; padding:10px 8px; border-bottom:1px solid var(--border); }
@@ -39,8 +41,8 @@
 <header>
   <div class="wrap">
     <div class="eyebrow">Révision Éclair</div>
-    <h1>Politique de confidentialité</h1>
-    <p>En vigueur depuis le 7 octobre 2026</p>
+    <h1>Politique de confidentialité et règles du CDI</h1>
+    <p>En vigueur depuis le 26 octobre 2026</p>
   </div>
 </header>
 
@@ -51,6 +53,8 @@
       <li>On collecte le minimum pour faire marcher l'app : ton prénom, ton email, tes cours collés, tes quiz et ta progression.</li>
       <li>On ne vend rien, on n'affiche pas de publicité, on ne te piste pas.</li>
       <li>Ton cours est envoyé à Google (Gemini) uniquement pour fabriquer ton quiz.</li>
+      <li>Si tu partages un quiz au CDI, les autres élèves voient ce quiz, mais jamais ton nom : il est publié de façon anonyme.</li>
+      <li>Le CDI a des règles (<a href="#cdi">section 2</a>). Tout contenu signalé est vérifié sous 24 h.</li>
       <li>Tu peux supprimer ton compte et toutes tes données à tout moment, directement dans l'app.</li>
       <li>L'app est réservée aux personnes de 15 ans et plus.</li>
     </ul>
@@ -60,6 +64,7 @@
     <h2>Sommaire</h2>
     <ol>
       <li><a href="#responsable">Qui est responsable ?</a></li>
+      <li><a href="#cdi">Règles du CDI</a></li>
       <li><a href="#donnees">Données collectées</a></li>
       <li><a href="#finalites">Pourquoi et sur quelle base</a></li>
       <li><a href="#destinataires">Qui y a accès</a></li>
@@ -69,8 +74,10 @@
       <li><a href="#droits">Tes droits</a></li>
       <li><a href="#suppression">Supprimer ton compte</a></li>
       <li><a href="#securite">Sécurité</a></li>
-      <li><a href="#traceurs">Traceurs</a></li>
-      <li><a href="#waitlist">Liste d'attente et testeurs</a></li>
+      <li><a href="#traceurs">Traceurs et rapports de plantage</a></li>
+      <li><a href="#notifications">Notifications</a></li>
+      <li><a href="#testeurs">Candidature testeur Android</a></li>
+      <li><a href="#waitlist">Liste d'attente du site</a></li>
       <li><a href="#modifs">Modifications</a></li>
     </ol>
   </nav>
@@ -78,40 +85,79 @@
   <section class="card" id="responsable">
     <h2>1. Qui est responsable de tes données ?</h2>
     <p>Le responsable du traitement est <strong>Hervé RIDORET</strong>, éditeur de l'application Révision Éclair, personne physique résidant en France.</p>
-    <p>Contact pour toute question sur tes données : <a href="mailto:revisioneclair@gmail.com">revisioneclair@gmail.com</a></p>
+    <p>Contact pour toute question sur tes données ou sur un contenu du CDI : <a href="mailto:revisioneclair@gmail.com">revisioneclair@gmail.com</a></p>
+  </section>
+
+  <section class="card rules" id="cdi">
+    <h2>2. Règles du CDI</h2>
+    <p>Le CDI est la bibliothèque de quiz partagés par les élèves. En créant un compte, tu acceptes ces règles. Elles s'appliquent à tout ce que tu publies au CDI.</p>
+    <h3>Ce que tu peux publier</h3>
+    <ul>
+      <li>Des quiz de révision sur des cours du lycée, générés dans l'app.</li>
+    </ul>
+    <h3>Ce qui est interdit, sans exception</h3>
+    <ul>
+      <li class="no">Tout contenu insultant, haineux, discriminatoire, harcelant ou menaçant.</li>
+      <li class="no">Tout contenu sexuel, violent ou choquant.</li>
+      <li class="no">Toute information personnelle sur toi ou sur quelqu'un d'autre (nom, adresse, téléphone, réseaux sociaux, photo…).</li>
+      <li class="no">Toute moquerie visant une personne réelle (un élève, un professeur…).</li>
+      <li class="no">Tout contenu illégal, publicitaire ou sans rapport avec la révision.</li>
+    </ul>
+    <h3>Comment on fait respecter ces règles</h3>
+    <ul>
+      <li><strong>Signaler</strong> : sur chaque quiz du CDI, le bouton « ⋯ » puis « Signaler ce quiz ».</li>
+      <li><strong>Masquage automatique</strong> : un quiz signalé par 3 élèves différents est masqué pour tout le monde, en attendant notre vérification.</li>
+      <li><strong>Vérification sous 24 h</strong> : chaque signalement est examiné dans les 24 heures. Un contenu contraire aux règles est supprimé définitivement.</li>
+      <li><strong>Sanction</strong> : le compte de l'auteur d'un contenu interdit peut être suspendu ou supprimé, sans préavis en cas d'abus grave.</li>
+      <li><strong>Ne plus voir un auteur</strong> : depuis « ⋯ », tu peux masquer tous les quiz d'un auteur, pour toi seulement.</li>
+      <li><strong>Nous écrire</strong> : <a href="mailto:revisioneclair@gmail.com?subject=CDI">revisioneclair@gmail.com</a>, objet « CDI ».</li>
+    </ul>
+    <p class="soft">Le CDI est anonyme : les autres élèves voient le quiz, sa matière, son niveau, le nombre de parties et le taux de réussite, jamais ton prénom ni ton email.</p>
   </section>
 
   <section class="card" id="donnees">
-    <h2>2. Les données qu'on collecte</h2>
+    <h2>3. Les données qu'on collecte</h2>
     <h3>Ton compte</h3>
     <ul>
       <li>Ton prénom et ton adresse email.</li>
       <li>Ton mot de passe : il est géré par Google Firebase Authentication et nous n'y avons jamais accès en clair.</li>
       <li>Si tu te connectes avec Google : ton nom affiché et ta photo de profil Google.</li>
-      <li>Un identifiant technique de compte, la date de création du compte et la date à laquelle tu as accepté cette politique.</li>
+      <li>Si tu te connectes avec Apple : ton nom et ton email, ou l'adresse relais anonyme fournie par Apple si tu choisis de masquer ton email.</li>
+      <li>Un identifiant technique de compte, la date de création du compte et la date à laquelle tu as accepté cette politique et les règles du CDI.</li>
     </ul>
     <h3>Ce que tu fais dans l'app</h3>
     <ul>
       <li>Le texte des cours que tu colles pour générer un quiz.</li>
       <li>Les quiz générés, tes réponses, tes scores, et les dates de tes prochaines révisions.</li>
-      <li>Ta progression : points d'expérience, série de jours, niveau de Lumi, nombre de générations utilisées par jour, statut gratuit ou Premium.</li>
+      <li>Ta progression : points d'expérience, série de jours, niveau de Lumi, nombre de générations utilisées par jour.</li>
     </ul>
-    <p class="soft">Conseil : ne colle jamais d'informations personnelles (les tiennes ou celles d'autres personnes) dans un cours. L'app n'en a pas besoin.</p>
+    <h3>Le CDI</h3>
+    <ul>
+      <li>Les quiz que tu choisis de partager : titre, matière, niveau, questions, date de publication, et un lien technique vers ton compte (jamais affiché aux autres).</li>
+      <li>Des statistiques anonymes par quiz : nombre de parties et taux de réussite au premier essai.</li>
+      <li>Les quiz du CDI que tu as joués, les quiz que tu as signalés et les auteurs que tu as choisi de ne plus voir.</li>
+    </ul>
+    <h3>Rapports de plantage</h3>
+    <p>Si l'app plante, un rapport technique est envoyé : modèle d'appareil, version du système et de l'app, écran concerné et trace de l'erreur. Il ne contient ni tes cours ni tes quiz (voir <a href="#traceurs">section 12</a>).</p>
+    <p class="soft">Conseil : ne colle jamais d'informations personnelles (les tiennes ou celles d'autres personnes) dans un cours. L'app n'en a pas besoin, et un quiz partagé au CDI est visible par tous.</p>
     <h3>Ce qu'on ne collecte pas</h3>
-    <p>Pas de numéro de téléphone, pas de localisation, pas de contacts, pas de données bancaires. Si tu passes Premium, le paiement est entièrement géré par l'App Store ou Google Play : nous ne voyons jamais ta carte.</p>
+    <p>Pas de numéro de téléphone, pas de localisation, pas de contacts, pas de données bancaires, pas d'identifiant publicitaire. Si un achat est proposé un jour dans l'app, le paiement sera entièrement géré par l'App Store ou Google Play : nous ne verrons jamais ta carte.</p>
   </section>
 
   <section class="card" id="finalites">
-    <h2>3. Pourquoi on utilise tes données, et sur quelle base</h2>
+    <h2>4. Pourquoi on utilise tes données, et sur quelle base</h2>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Ce qu'on fait</th><th>Base légale (RGPD)</th></tr></thead>
         <tbody>
           <tr><td>Créer et gérer ton compte, générer tes quiz, planifier tes révisions, suivre ta progression</td><td>Exécution du service que tu demandes (art. 6.1.b)</td></tr>
-          <tr><td>Appliquer la limite de quiz gratuits par jour et gérer l'abonnement Premium</td><td>Exécution du service (art. 6.1.b)</td></tr>
-          <tr><td>Garder la preuve que tu as accepté cette politique et déclaré avoir 15 ans ou plus</td><td>Intérêt légitime : pouvoir le démontrer (art. 6.1.f)</td></tr>
+          <tr><td>Publier tes quiz au CDI quand tu le demandes, et afficher les quiz des autres</td><td>Exécution du service (art. 6.1.b)</td></tr>
+          <tr><td>Appliquer la limite de quiz par jour</td><td>Exécution du service (art. 6.1.b)</td></tr>
+          <tr><td>Traiter les signalements et modérer le CDI</td><td>Intérêt légitime : protéger les utilisateurs (art. 6.1.f)</td></tr>
+          <tr><td>Garder la preuve que tu as accepté cette politique, les règles du CDI et déclaré avoir 15 ans ou plus</td><td>Intérêt légitime : pouvoir le démontrer (art. 6.1.f)</td></tr>
+          <tr><td>Détecter et corriger les plantages</td><td>Intérêt légitime : faire fonctionner l'app (art. 6.1.f)</td></tr>
+          <tr><td>T'envoyer des rappels de révision sur ton téléphone</td><td>Ton accord, donné en autorisant les notifications (art. 6.1.a)</td></tr>
           <tr><td>Répondre à tes messages</td><td>Intérêt légitime (art. 6.1.f)</td></tr>
-          <tr><td>Protéger l'app contre les abus</td><td>Intérêt légitime (art. 6.1.f)</td></tr>
         </tbody>
       </table>
     </div>
@@ -119,78 +165,93 @@
   </section>
 
   <section class="card" id="destinataires">
-    <h2>4. Qui a accès à tes données</h2>
-    <p>Personne d'autre que nous et nos prestataires techniques, chacun pour sa seule mission :</p>
+    <h2>5. Qui a accès à tes données</h2>
+    <p>Nos prestataires techniques, chacun pour sa seule mission :</p>
     <ul>
-      <li><strong>Google Firebase</strong> (Google) : connexion, hébergement de la base de données de l'app.</li>
-      <li><strong>Google Gemini API</strong> (Google) : reçoit le texte de ton cours pour générer le quiz. Dans le cadre de l'offre que nous utilisons, Google ne s'en sert pas pour entraîner ses modèles.</li>
-      <li><strong>Apple App Store / Google Play</strong> : uniquement si tu souscris à Premium, pour gérer le paiement.</li>
+      <li><strong>Google Firebase</strong> (Google) : connexion, hébergement de la base de données, rapports de plantage (Firebase Crashlytics).</li>
+      <li><strong>Google Gemini API</strong> (Google) : reçoit le texte de ton cours pour générer le quiz. Dans le cadre de l'offre payante que nous utilisons, Google ne s'en sert pas pour entraîner ses modèles.</li>
+      <li><strong>Apple</strong> : uniquement si tu choisis « Continuer avec Apple ».</li>
     </ul>
-    <p>Les autres utilisateurs de l'app ne voient jamais tes cours, tes quiz ni tes scores.</p>
+    <p><strong>Les autres élèves</strong> voient uniquement les quiz que tu as choisi de partager au CDI, de façon anonyme. Ils ne voient jamais tes cours, tes autres quiz, tes scores ni ton identité.</p>
   </section>
 
   <section class="card" id="transferts">
-    <h2>5. Transferts hors de l'Union européenne</h2>
+    <h2>6. Transferts hors de l'Union européenne</h2>
     <p>Google peut traiter certaines données sur des serveurs situés hors de l'UE, notamment aux États-Unis. Ces transferts sont encadrés par le cadre de protection des données UE–États-Unis (Data Privacy Framework), auquel Google adhère, et par les clauses contractuelles types de la Commission européenne.</p>
   </section>
 
   <section class="card" id="conservation">
-    <h2>6. Combien de temps on garde tes données</h2>
+    <h2>7. Combien de temps on garde tes données</h2>
     <ul>
-      <li><strong>Tant que ton compte existe</strong> : on garde ton compte, tes quiz et ta progression pour que l'app fonctionne.</li>
-      <li><strong>Quand tu supprimes ton compte</strong> : tout est effacé immédiatement (compte, cours, quiz, progression).</li>
+      <li><strong>Tant que ton compte existe</strong> : on garde ton compte, tes quiz, tes quiz publiés au CDI et ta progression pour que l'app fonctionne.</li>
+      <li><strong>Quand tu supprimes ton compte</strong> : tout est effacé immédiatement (compte, cours, quiz, quiz publiés au CDI, progression).</li>
+      <li><strong>Contenu du CDI retiré pour non-respect des règles</strong> : supprimé définitivement.</li>
+      <li><strong>Rapports de plantage</strong> : 90 jours maximum.</li>
       <li><strong>Compte inactif</strong> : un compte sans aucune connexion pendant 3 ans est supprimé.</li>
       <li><strong>Emails que tu nous envoies</strong> : conservés 1 an après le dernier échange.</li>
     </ul>
   </section>
 
   <section class="card" id="age">
-    <h2>7. Âge minimum : 15 ans</h2>
+    <h2>8. Âge minimum : 15 ans</h2>
     <p>Révision Éclair est réservée aux personnes de 15 ans et plus. À la création du compte, tu déclares avoir au moins 15 ans. Si nous apprenons qu'un compte appartient à une personne de moins de 15 ans, nous le supprimons.</p>
   </section>
 
   <section class="card" id="droits">
-    <h2>8. Tes droits</h2>
+    <h2>9. Tes droits</h2>
     <p>Tu peux, à tout moment et gratuitement :</p>
     <ul>
       <li><strong>accéder</strong> à tes données et en obtenir une copie ;</li>
       <li>les <strong>faire corriger</strong> ;</li>
-      <li>les <strong>faire effacer</strong> (voir section 9) ;</li>
+      <li>les <strong>faire effacer</strong> (voir section 10) ;</li>
       <li>t'<strong>opposer</strong> à un traitement fondé sur notre intérêt légitime, ou en demander la <strong>limitation</strong> ;</li>
-      <li>récupérer tes données dans un format réutilisable (<strong>portabilité</strong>).</li>
+      <li>récupérer tes données dans un format réutilisable (<strong>portabilité</strong>) ;</li>
+      <li><strong>retirer ton accord</strong> aux notifications, à tout moment, dans les réglages de ton téléphone.</li>
     </ul>
     <p>Écris à <a href="mailto:revisioneclair@gmail.com">revisioneclair@gmail.com</a> depuis l'adresse de ton compte. On répond sous un mois maximum.</p>
     <p>Si tu estimes que tes droits ne sont pas respectés, tu peux saisir la CNIL : <a href="https://www.cnil.fr/fr/plaintes" rel="noopener">cnil.fr/fr/plaintes</a>.</p>
   </section>
 
   <section class="card key" id="suppression">
-    <h2>9. Supprimer ton compte</h2>
+    <h2>10. Supprimer ton compte</h2>
     <h3>Depuis l'app (immédiat)</h3>
-    <p>Profil → Paramètres → <strong>Supprimer mon compte</strong>. Ton compte, tes cours, tes quiz et ta progression sont effacés définitivement. Par sécurité, l'app peut te demander de te reconnecter juste avant.</p>
+    <p>Profil → Paramètres → <strong>Supprimer mon compte</strong>. Ton compte, tes cours, tes quiz, tes quiz publiés au CDI et ta progression sont effacés définitivement. Par sécurité, l'app peut te demander de te reconnecter juste avant.</p>
     <h3>Sans l'app</h3>
     <p>Envoie un email à <a href="mailto:revisioneclair@gmail.com?subject=Suppression%20de%20compte">revisioneclair@gmail.com</a> avec l'objet « Suppression de compte », depuis l'adresse email de ton compte. Le compte et toutes les données associées sont supprimés sous 30 jours, et on te le confirme par email.</p>
   </section>
 
   <section class="card" id="securite">
-    <h2>10. Sécurité</h2>
-    <p>Les échanges avec l'app sont chiffrés. L'accès à la base de données est verrouillé par des règles qui n'autorisent chaque utilisateur à lire et modifier que ses propres données. Les mots de passe sont gérés par Firebase Authentication et ne sont jamais stockés en clair.</p>
+    <h2>11. Sécurité</h2>
+    <p>Les échanges avec l'app sont chiffrés. L'accès à la base de données est verrouillé par des règles : chaque utilisateur ne peut lire et modifier que ses propres données. Seuls les quiz partagés au CDI sont lisibles par les autres utilisateurs connectés, et seul leur auteur peut les modifier ou les supprimer. Les mots de passe sont gérés par Firebase Authentication et ne sont jamais stockés en clair.</p>
   </section>
 
   <section class="card" id="traceurs">
-    <h2>11. Traceurs</h2>
-    <p>L'app n'utilise aucun traceur publicitaire ni outil de mesure d'audience. Seuls les éléments techniques indispensables au fonctionnement (garder ta session connectée) sont utilisés.</p>
+    <h2>12. Traceurs et rapports de plantage</h2>
+    <p>L'app n'utilise aucun traceur publicitaire, aucun identifiant publicitaire et aucun outil de mesure d'audience. Elle utilise uniquement :</p>
+    <ul>
+      <li>les éléments techniques indispensables au fonctionnement (garder ta session connectée) ;</li>
+      <li><strong>Firebase Crashlytics</strong>, qui envoie un rapport technique quand l'app plante, pour qu'on puisse corriger le problème. Ce rapport n'est jamais utilisé pour te suivre ni pour de la publicité.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="notifications">
+    <h2>13. Notifications</h2>
+    <p>Si tu l'autorises, l'app programme sur ton téléphone des rappels quand un quiz est à réviser. Ces rappels sont créés et stockés sur ton téléphone : aucune donnée supplémentaire n'est envoyée pour cela. Tu peux les désactiver à tout moment dans les réglages de ton téléphone.</p>
+  </section>
+
+  <section class="card" id="testeurs">
+    <h2>14. Candidature testeur Android</h2>
+    <p>Si tu postules pour tester l'app sur Android, on collecte ton prénom, ton adresse Gmail et ta déclaration d'avoir un téléphone Android et au moins 15 ans, via le service Formspree. Ton adresse Gmail sert uniquement à te donner accès au test fermé sur Google Play ; elle est transmise à Google (Google Play et, le cas échéant, Google Groups). La base légale est ta demande de participer au test. Ces données sont supprimées dans les 3 mois qui suivent la fin du test, ou plus tôt sur simple demande à <a href="mailto:revisioneclair@gmail.com">revisioneclair@gmail.com</a>.</p>
   </section>
 
   <section class="card" id="waitlist">
-      <h2>12. Liste d'attente et candidatures testeurs</h2>
-      <p>Si tu t'inscris sur la liste d'attente du site, on collecte uniquement ton adresse email, via le service Formspree, pour te prévenir de la sortie de l'app. Elle est supprimée dans les 3 mois qui suivent la sortie, ou plus tôt sur simple demande à <a href="mailto:revisioneclair@gmail.com">revisioneclair@gmail.com</a>.</p>
-      <h3 id="testeurs">Candidature testeur Android</h3>
-      <p>Si tu candidates pour tester l'app, on collecte ton prénom et ton adresse Gmail, via Formspree, ainsi que ta déclaration d'avoir un téléphone Android et 15 ans ou plus. Ton adresse Gmail sert uniquement à t'ouvrir l'accès au test fermé sur Google Play : elle est donc transmise à Google (Google Play et, le cas échéant, Google Groups). Base légale : ta demande de participer au test (art. 6.1.b). Ces données sont supprimées dans les 3 mois qui suivent la fin du test, ou plus tôt sur simple demande à <a href="mailto:revisioneclair@gmail.com">revisioneclair@gmail.com</a>.</p>
+    <h2>15. Liste d'attente du site</h2>
+    <p>Si tu t'inscris sur la liste d'attente du site, on collecte uniquement ton adresse email, via le service Formspree, pour te prévenir de la sortie de l'app. Elle est supprimée dans les 3 mois qui suivent la sortie, ou plus tôt sur simple demande à <a href="mailto:revisioneclair@gmail.com">revisioneclair@gmail.com</a>.</p>
   </section>
 
   <section class="card" id="modifs">
-    <h2>13. Modifications</h2>
-    <p>Si cette politique change de façon importante, on te prévient dans l'app avant que les changements s'appliquent. La date en haut de page indique la dernière version.</p>
+    <h2>16. Modifications</h2>
+    <p>Si cette politique ou les règles du CDI changent de façon importante, on te prévient dans l'app avant que les changements s'appliquent. La date en haut de page indique la dernière version.</p>
   </section>
 
   <p class="soft" style="text-align:center;margin-top:24px;">Révision Éclair · <a href="mailto:revisioneclair@gmail.com">revisioneclair@gmail.com</a></p>
